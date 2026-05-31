@@ -6,44 +6,53 @@ function App() {
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedTime, setSelectedTime] = useState("");
 
-  const sendEmail = async (foodChoice) => {
-    const formData = {
-      access_key: "a6c38511-0e1b-46c0-a826-2d832f580d57",
-      subject: "Date Plan Response 💌",
-      date: selectedDate,
-      time: selectedTime,
-      food: foodChoice,
-      message: `She selected ${foodChoice} on ${selectedDate} at ${selectedTime}`,
-    };
-    const sendNoEmail = async () => {
+  const accessKey = "a6c38511-0e1b-46c0-a826-2d832f580d57";
+
+const sendEmail = async (foodChoice) => {
+  const formData = {
+    access_key: accessKey,
+    subject: "Date Plan Response 💌",
+    date: selectedDate,
+    time: selectedTime,
+    food: foodChoice,
+    message: `She selected ${foodChoice} on ${selectedDate} at ${selectedTime}`,
+  };
+
   await fetch("https://api.web3forms.com/submit", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
       Accept: "application/json",
     },
-    body: JSON.stringify({
-      access_key: "YOUR_WEB3FORMS_KEY",
-      subject: "Date Request Rejected 😭",
-      message: "She selected 'Still No' on the negotiation page.",
-    }),
+    body: JSON.stringify(formData),
+  });
+
+  setPage(5);
+};
+
+const sendNoEmail = async () => {
+  const formData = {
+    access_key: accessKey,
+    subject: "Date Request Rejected 😭",
+    date: selectedDate,
+    time: selectedTime,
+    message: `She selected STILL NO 😭
+
+Date: ${selectedDate}
+Time: ${selectedTime}`,
+  };
+
+  await fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(formData),
   });
 
   setPage(7);
 };
-
-    await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
-
-    setPage(5);
-  };
-
   const today = new Intl.DateTimeFormat("en-CA", {
     timeZone: "America/Chicago",
     year: "numeric",
