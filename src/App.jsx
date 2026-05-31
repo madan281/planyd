@@ -15,6 +15,22 @@ function App() {
       food: foodChoice,
       message: `She selected ${foodChoice} on ${selectedDate} at ${selectedTime}`,
     };
+    const sendNoEmail = async () => {
+  await fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({
+      access_key: "YOUR_WEB3FORMS_KEY",
+      subject: "Date Request Rejected 😭",
+      message: "She selected 'Still No' on the negotiation page.",
+    }),
+  });
+
+  setPage(7);
+};
 
     await fetch("https://api.web3forms.com/submit", {
       method: "POST",
@@ -54,7 +70,7 @@ function App() {
     return (
       <div className="container">
         <div className="card">
-          <img src="/cat.gif" alt="Sad Cat" className="gif" />
+          <img src="/cat2.gif" alt="Sad Cat" className="gif" />
 
           <h1>😭 Mission Failed</h1>
 
@@ -88,7 +104,7 @@ function App() {
             Okay fine, Yes 🌸
           </button>
 
-          <button className="noFinalBtn" onClick={() => setPage(7)}>
+          <button className="noFinalBtn" onClick={sendNoEmail}>
             Still No 😭
           </button>
         </div>
