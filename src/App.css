@@ -191,6 +191,21 @@ button {
   background: #ffe4ec;
   transform: scale(1.03);
 }
+.negotiationBtn {
+  margin-top: 25px;
+}
+
+.noFinalBtn {
+  margin-top: 16px;
+  background: #f3f4f6;
+  color: #374151;
+  min-width: 180px;
+}
+
+.noFinalBtn:hover {
+  background: #e5e7eb;
+  transform: scale(1.03);
+}
 
 @media (max-width: 480px) {
   .card {
