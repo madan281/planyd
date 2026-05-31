@@ -2,6 +2,28 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
+  const sendEmail = async (foodChoice) => {
+  const formData = {
+    access_key: "a6c38511-0e1b-46c0-a826-2d832f580d57",
+    subject: "Date Plan Response 💌",
+    date: selectedDate,
+    time: selectedTime,
+    food: foodChoice,
+    message: `She selected ${foodChoice} on ${selectedDate} at ${selectedTime}`,
+  };
+
+  await fetch("https://api.web3forms.com/submit", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(formData),
+  });
+
+  setPage(5);
+};
+  
   const [page, setPage] = useState(1);
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedTime, setSelectedTime] = useState("");
@@ -48,43 +70,60 @@ function App() {
   }
 
   if (page === 4) {
-    return (
-      <div className="container">
-        <div className="card largeCard">
-          <h1>🍽️ Most important question...</h1>
+  return (
+    <div className="container">
+      <div className="card largeCard">
+        <h1>🍽️ Most important question...</h1>
 
-          <p>What are we eating?</p>
+        <p>What are we eating?</p>
 
-          <div className="foodGrid">
-            <button className="foodBtn" onClick={() => setPage(5)}>
-              🍕 Pizza
-            </button>
+        <div className="foodGrid">
+          <button
+            className="foodBtn"
+            onClick={() => sendEmail("Pizza")}
+          >
+            🍕 Pizza
+          </button>
 
-            <button className="foodBtn" onClick={() => setPage(5)}>
-              ☕ We could go to a café
-            </button>
+          <button
+            className="foodBtn"
+            onClick={() => sendEmail("Café Date")}
+          >
+            ☕ We could go to a café
+          </button>
 
-            <button className="foodBtn" onClick={() => setPage(5)}>
-              🍝 Pasta
-            </button>
+          <button
+            className="foodBtn"
+            onClick={() => sendEmail("Pasta")}
+          >
+            🍝 Pasta
+          </button>
 
-            <button className="foodBtn" onClick={() => setPage(5)}>
-              🌮 Tacos
-            </button>
+          <button
+            className="foodBtn"
+            onClick={() => sendEmail("Tacos")}
+          >
+            🌮 Tacos
+          </button>
 
-            <button className="foodBtn" onClick={() => setPage(5)}>
-              🥪 Sandwiches
-            </button>
+          <button
+            className="foodBtn"
+            onClick={() => sendEmail("Sandwiches")}
+          >
+            🥪 Sandwiches
+          </button>
 
-            <button className="foodBtn" onClick={() => setPage(5)}>
-              🥞 Surprise me
-            </button>
-          </div>
+          <button
+            className="foodBtn"
+            onClick={() => sendEmail("Surprise Me")}
+          >
+            🥞 Surprise me
+          </button>
         </div>
       </div>
-    );
-  }
-
+    </div>
+  );
+}
   if (page === 3) {
     return (
       <div className="container">
