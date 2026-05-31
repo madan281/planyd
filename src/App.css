@@ -21,11 +21,9 @@ body {
   width: 100%;
   min-height: 100vh;
   background: linear-gradient(135deg, #ffe4ec, #fff1f5);
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   padding: 20px;
 }
 
@@ -33,18 +31,14 @@ body {
   width: 100%;
   max-width: 500px;
   min-height: 600px;
-
   background: white;
   border-radius: 30px;
   padding: 40px 25px;
-
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   text-align: center;
 }
 
@@ -83,7 +77,6 @@ p {
 .buttons {
   margin-top: 40px;
   width: 100%;
-
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -94,10 +87,8 @@ button {
   border: none;
   border-radius: 999px;
   padding: 14px 36px;
-
   font-size: 18px;
   font-weight: 600;
-
   cursor: pointer;
   transition: all 0.25s ease;
 }
@@ -106,7 +97,6 @@ button {
   background: #e11d48;
   color: white;
   min-width: 180px;
-
   box-shadow: 0 10px 25px rgba(225, 29, 72, 0.25);
 }
 
@@ -118,21 +108,29 @@ button {
   background: #f3f4f6;
   color: #374151;
   min-width: 180px;
+  transition: transform 0.25s ease;
 }
 
 .dateInput {
   width: 100%;
-  max-width: 280px;
-
-  padding: 14px;
+  max-width: 320px;
+  padding: 15px 18px;
+  border-radius: 18px;
+  border: 2px solid #f9a8d4;
+  background: #fff1f5;
+  color: #be185d;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  outline: none;
   margin-top: 15px;
   margin-bottom: 25px;
+  box-shadow: 0 8px 20px rgba(225, 29, 72, 0.12);
+}
 
-  border-radius: 12px;
-  border: 2px solid #fbcfe8;
-
-  font-size: 16px;
-  text-align: center;
+.dateInput:focus {
+  border-color: #e11d48;
+  background: #fff7fb;
 }
 
 .timeButtons {
@@ -144,13 +142,10 @@ button {
 
 .timeBtn {
   width: 100%;
-
   background: #fff1f5;
   color: #be185d;
-
   border: 2px solid #fbcfe8;
   border-radius: 14px;
-
   padding: 14px;
   font-size: 15px;
   text-align: center;
@@ -175,10 +170,8 @@ button {
 
 .foodGrid {
   width: 100%;
-
   display: grid;
   grid-template-columns: 1fr 1fr;
-
   gap: 14px;
   margin-top: 25px;
 }
@@ -186,13 +179,10 @@ button {
 .foodBtn {
   background: #fff1f5;
   color: #be185d;
-
   border: 2px solid #fbcfe8;
   border-radius: 18px;
-
   padding: 18px 12px;
   font-size: 16px;
-
   cursor: pointer;
   transition: all 0.25s ease;
 }
@@ -200,12 +190,6 @@ button {
 .foodBtn:hover {
   background: #ffe4ec;
   transform: scale(1.03);
-}
-.noBtn {
-  background: #f3f4f6;
-  color: #374151;
-  min-width: 180px;
-  transition: transform 0.25s ease;
 }
 
 @media (max-width: 480px) {

@@ -6,18 +6,25 @@ function App() {
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedTime, setSelectedTime] = useState("");
 
+  const today = new Intl.DateTimeFormat("en-CA", {
+  timeZone: "America/Chicago",
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit",
+}).format(new Date());
+
   const [noStyle, setNoStyle] = useState({
     transform: "translate(0px, 0px)",
   });
 
- const moveNoButton = () => {
-  const x = Math.floor(Math.random() * 180) - 90;
-  const y = Math.floor(Math.random() * 120) - 60;
+  const moveNoButton = () => {
+    const x = Math.floor(Math.random() * 180) - 90;
+    const y = Math.floor(Math.random() * 120) - 60;
 
-  setNoStyle({
-    transform: `translate(${x}px, ${y}px)`,
-  });
-};
+    setNoStyle({
+      transform: `translate(${x}px, ${y}px)`,
+    });
+  };
 
   const isDateTimeSelected = selectedDate !== "" && selectedTime !== "";
 
@@ -86,12 +93,12 @@ function App() {
           <p>Pick a day and what time 🌸</p>
 
           <input
-            type="date"
-            className="dateInput"
-            value={selectedDate}
-            onChange={(e) => setSelectedDate(e.target.value)}
-          />
-
+  type="date"
+  className="dateInput"
+  value={selectedDate}
+  min={today}
+  onChange={(e) => setSelectedDate(e.target.value)}
+/>
           <div className="timeButtons">
             <button className="timeBtn" onClick={() => setSelectedTime("5 PM")}>
               5 PM — we eating with the retirees 👵👴
@@ -111,9 +118,7 @@ function App() {
           </div>
 
           {!isDateTimeSelected && (
-            <p className="helperText">
-              Pick both a date and time first 👀
-            </p>
+            <p className="helperText">Pick both a date and time first 👀</p>
           )}
 
           {isDateTimeSelected && (
@@ -123,7 +128,7 @@ function App() {
               </p>
 
               <button className="yesBtn" onClick={() => setPage(4)}>
-                Let's set the deal →
+                Let&apos;s set the deal →
               </button>
             </>
           )}
@@ -140,7 +145,7 @@ function App() {
 
           <h1>😳 Wait... you actually said YES?</h1>
 
-          <p>🫣 I genuinely thought you'd spend all day chasing the No button.</p>
+          <p>🫣 I genuinely thought you&apos;d spend all day chasing the No button.</p>
 
           <button className="yesBtn" onClick={() => setPage(3)}>
             Continue →
@@ -162,15 +167,15 @@ function App() {
             Yes 🌸
           </button>
 
-         <button
-  className="noBtn"
-  style={noStyle}
-  onMouseEnter={moveNoButton}
-  onTouchStart={moveNoButton}
-  onClick={moveNoButton}
->
-  No 🙈
-</button>
+          <button
+            className="noBtn"
+            style={noStyle}
+            onMouseEnter={moveNoButton}
+            onTouchStart={moveNoButton}
+            onClick={moveNoButton}
+          >
+            No 🙈
+          </button>
         </div>
       </div>
     </div>
