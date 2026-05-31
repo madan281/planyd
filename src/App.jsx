@@ -76,30 +76,46 @@ Time: ${selectedTime}`,
   const isDateTimeSelected = selectedDate !== "" && selectedTime !== "";
 
   if (page === 7) {
-    return (
-      <div className="container">
-        <div className="card">
-          <img src="/cat2.gif" alt="Sad Cat" className="gif" />
+  return (
+    <div className="container">
+      <div className="card">
+        <img src="/cat2.gif" alt="Mission Failed" className="gif" />
 
-          <h1>😭 Mission Failed</h1>
+        <h1>📋 Final Review</h1>
 
-          <p>Well... it was worth a shot.</p>
-          <p>Thanks for making it this far anyway 🌸</p>
+        <p>After careful consideration...</p>
 
-          <button className="yesBtn" onClick={() => setPage(1)}>
-            Start Over ↺
-          </button>
-        </div>
+        <p>Your NO has been received.</p>
+
+        <p>
+          Unfortunately, it has been placed in the
+          <br />
+          <strong>"Pending Further Review"</strong>
+          department.
+        </p>
+
+        <p>
+          Estimated processing time:
+          <br />
+          <strong>3–5 business years 😂</strong>
+        </p>
+
+        <button
+          className="yesBtn"
+          onClick={() => setPage(1)}
+        >
+          🌸 Start Over
+        </button>
       </div>
-    );
-  }
-
+    </div>
+  );
+}
   if (page === 6) {
     return (
       <div className="container">
         <div className="card largeCard">
           <h1>🥺 Wait... let&apos;s negotiate</h1>
-
+          <p>Are you saying no to me, or just to the responsibility of picking a restaurant?</p>
           <p>Okay okay, what if I make the deal better?</p>
 
           <div className="foodGrid">
@@ -114,8 +130,8 @@ Time: ${selectedTime}`,
           </button>
 
           <button className="noFinalBtn" onClick={sendNoEmail}>
-            Still No 😭
-          </button>
+  Still No 😭
+</button>
         </div>
       </div>
     );
