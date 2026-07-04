@@ -110,32 +110,32 @@ Time: ${selectedTime}`,
     </div>
   );
 }
-  if (page === 6) {
-    return (
-      <div className="container">
-        <div className="card largeCard">
-          <h1>🥺 Wait... let&apos;s negotiate</h1>
-          <p>Are you saying no to me, or just to the responsibility of picking a restaurant?</p>
-          <p>Okay okay, what if I make the deal better?</p>
+//   if (page === 6) {
+//     return (
+//       <div className="container">
+//         <div className="card largeCard">
+//           <h1>🥺 Wait... let&apos;s negotiate</h1>
+//           <p>Are you saying no to me, or just to the responsibility of picking a restaurant?</p>
+//           <p>Okay okay, what if I make the deal better?</p>
 
-          <div className="foodGrid">
-            <button className="foodBtn">☕ Coffee first?</button>
-            <button className="foodBtn">🍕 Food included?</button>
-            <button className="foodBtn">🌸 You pick the place?</button>
-            <button className="foodBtn">🙃 I promise I&apos;ll behave</button>
-          </div>
+//           <div className="foodGrid">
+//             <button className="foodBtn">☕ Coffee first?</button>
+//             <button className="foodBtn">🍕 Food included?</button>
+//             <button className="foodBtn">🌸 You pick the place?</button>
+//             <button className="foodBtn">🙃 I promise I&apos;ll behave</button>
+//           </div>
 
-          <button className="yesBtn negotiationBtn" onClick={() => setPage(2)}>
-            Okay fine, Yes 🌸
-          </button>
+//           <button className="yesBtn negotiationBtn" onClick={() => setPage(2)}>
+//             Okay fine, Yes 🌸
+//           </button>
 
-          <button className="noFinalBtn" onClick={sendNoEmail}>
-  Still No 😭
-</button>
-        </div>
-      </div>
-    );
-  }
+//           <button className="noFinalBtn" onClick={sendNoEmail}>
+//   Still No 😭
+// </button>
+//         </div>
+//       </div>
+//     );
+//   }
 
   if (page === 5) {
     return (
@@ -278,14 +278,14 @@ Time: ${selectedTime}`,
           </button>
 
           <button
-            className="noBtn"
-            style={noStyle}
-            onMouseEnter={moveNoButton}
-            onTouchStart={() => setPage(6)}
-            onClick={() => setPage(6)}
-          >
-            No 🙈
-          </button>
+  className="noBtn"
+  style={noStyle}
+  onMouseEnter={moveNoButton}
+  onTouchStart={moveNoButton}
+  onClick={moveNoButton}
+>
+  No 🙈
+</button>
         </div>
       </div>
     </div>
